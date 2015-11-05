@@ -1,0 +1,76 @@
+# Sage Math Codes
+# EmreOvunc
+ 
+def AffineCryptoSystem():     
+    A=AffineCryptosystem(AlphabeticStrings())
+    PlainText=A.encoding(Read_TextFile())   
+    
+    key1,key2=GenerateKeys(A)
+    Cipher=Encryption(A,PlainText,key1,key2)
+    Write_EncryptedText(Cipher) 
+    
+    EncryptText=A.encoding(Read_TextFile())  
+    
+    key1Inv,key2Inv=GenerateInverseKeys(A,key1,key2)
+    Write_DecryptedText(A,Decryption(A,key1Inv,key2Inv)) 
+      
+    Ranking_None(A,Cipher)   
+    Ranking_Chisquare(A,Cipher)
+    Ranking_Squared(A,Cipher)
+    
+def GenerateKeys(self):
+    a,b=self.random_key() 
+    return a,b 
+        
+def GenerateInverseKeys(self,a,b):
+    aInverse,bInverse=self.inverse_key(a,b)
+    return aInverse,bInverse
+
+def Encryption(self,P,a,b):
+    E=self(a,b)
+    C=E(P)
+    return C
+    
+def Decryption(self,aInverse,bInverse):
+    D=self(aInverse,bInverse)
+    return D
+        
+def Read_TextFile():
+    with open("/home/EmreOvunc/Desktop/Message.txt", 'r') as TextFile:
+        lines=TextFile.read()
+    TextFile.close()
+    return lines
+          
+def Write_EncryptedText(Cipher):
+    with open("/home/EmreOvunc/Desktop/EncryptedMessage.txt", "w") as EncryptedText:
+        EncryptedText.write(str(Cipher))
+    EncryptedText.close()   
+
+def Write_DecryptedText(self,D):
+    with open('/home/EmreOvunc/Desktop/EncryptedMessage.txt', 'r') as ReadEncryptedFile:
+        line=ReadEncryptedFile.read()       
+    line=self.encoding(line)
+    
+    DecryptedText= open("/home/EmreOvunc/Desktop/DecryptedMessage.txt", "w")
+    DecryptedText.write(str(D(line)))
+    DecryptedText.close()    
+
+def Ranking_Squared(self,Cipher):
+    Rank = self.brute_force(Cipher, ranking="squared_differences")
+    with open("/home/EmreOvunc/Desktop/Ranking_Squared.txt", "w") as Ranking_Squared:
+        Ranking_Squared.write(str(Rank))
+    Ranking_Squared.close()
+    
+def Ranking_Chisquare(self,Cipher):
+    Rank = self.brute_force(Cipher, ranking="chisquare")
+    with open("/home/EmreOvunc/Desktop/Ranking_Chisquare.txt", "w") as Ranking_Chisquare:
+        Ranking_Chisquare.write(str(Rank))
+    Ranking_Chisquare.close()
+        
+def Ranking_None(self,Cipher):
+    L=self.brute_force(Cipher)
+    with open("/home/EmreOvunc/Desktop/Ranking_None.txt", "w") as Ranking_None:
+        Ranking_None.write(str(L))
+    Ranking_None.close()
+
+AffineCryptoSystem()
