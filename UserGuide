@@ -1,0 +1,5 @@
+You should change the directory of your plain text message to run this program
+properly. There are 7 directory path in my codes which you should change.
+For Example:
+with open ('/home/debian/Desktop/Message.txt','w') as TextFile
+with open ('/Your/Message/Path/','w') as Text File
