@@ -25,6 +25,8 @@ print C
 
 First of all ,  my codes create affine crypto system and read the plain text from the text file. Then, it generates two keys (key1,key2) and encrypts the plain text -called Cipher (encrypted text)- with using these keys. Next, it writes cipher into another text file.After that, my codes also generates two keys , but these keys are inverse of the key1 and key2. After reading encrypted text , it decrypts all of text and again writes into a another text file , I called DecryptedMessage in my codes.Lastly, I use ranking function to try bruteforce attack with different parameters and write results into another text file.
 
+[Source codes here...](https://github.com/EmreOvunc/Affine-Crypto-System-Sage/blob/master/AffineCryptoSystem)
+
 ### Explaining my codes:
 
 * ***def AffineCryptoSystem()***
@@ -63,4 +65,4 @@ In this line, I can read or write a text file for my results. 'r' is read, 'w' i
 This command allows me to write Cipher into text file which I opened later.
 
 ### Input & Output relations
-On the one hand, when we take a look inputs, we see that inputs are the plain text like “Hello Cryptography” and it may be one sentence or more sentences. On the other hand, output is encrypted text which is  “TWPPMYJCLHMUJALTC”. We see that the differences between inputs and outputs. This relationship shows us that the algorithm that we can use, works correctly. In addition, you can look the PART FOUR to compare results.
+On the one hand, when we take a look inputs, we see that inputs are the plain text like “Hello Cryptography” and it may be one sentence or more sentences. On the other hand, output is encrypted text which is  “TWPPMYJCLHMUJALTC”. We see that the differences between inputs and outputs. This relationship shows us that the algorithm that we can use, works correctly.
